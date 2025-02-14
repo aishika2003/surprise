@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valentine's Surprise 💖</title>
+  <link href="index.css" rel="stylesheet" />
+</head>
+<body class= "container">
+  <div id="mainContainer">
+    <div id="step1" class="hidden">
+      <h2 class="text">Enter Your Name</h2>
+      <div class="input-container">
+        <input type="text" id="nameInput" class="placeholder" placeholder="Your Name">
+        <button onclick="saveName()" class="nextButton">Next</button>
+      </div>
+    </div>
+
+    <div id="step2" class="hidden">
+      <h2 class="text">Enter Our Anniversary Date</h2>
+      <div class="input-container">
+        <input type="date" id="dateInput" class="placeholder">
+        <button onclick="checkDate()" class="nextButton">Unlock</button>
+      </div>
+    </div>
+
+    <div id="step3" class="hidden">
+      <h2 class="text-lg font-bold">Aww, you really remembered! 🥰</h2>
+      <p class="mt-2 text-gray-700">Now scratch the green box to get an exciting prize!</p>
+      <a>🎁 Scratch Me!</a>
+      <div id="scratchCard" class="scratch-container">
+          <div class="scratch-card">
+            <div class="code">YOU JUST WON...</div>
+            <a href="#" onclick="nextstep(event)" class="tap">Tap to know</a>
+          </div>
+
+          <canvas id="scratch-canvas" width="300" height="100"></canvas>
+      </div>
+      <link href="scratch.css" rel="stylesheet">
+      <script src="scratch.js"></script>    
+    </div>
+
+      <div id="step4" class="hidden">
+        <h2 class="text-lg font-bold">Am I not the best gift for you? 😢</h2>
+        <div class="mt-4 flex justify-center space-x-4">
+            <button onclick="showGiftSelection()" class="nextButton">Yes</button>
+            <button onmouseover="moveNoButton()" class="nextButton" id="noButton">No</button>
+        </div>
+      </div>
+      
+      <div id="step5" class="hidden">
+        <h2 class="text-lg font-bold">He he cutie! Now tell</h2>
+        <h2>what you want as a gift! 🎁</h2>
+        <div class="scroll-container">
+          <button id="scrollLeft" class="scroll-btn">❮</button>
+          <div class="scroll">
+            <img src="https://images.tractorjunction.com/new_bike_product_6e1470a3e1.png?format=webp" onclick="showWinner('Kawasaki Ninja')">
+            <img src="https://www.jeep.com/content/dam/fca-brands/na/jeep/en_us/2025/compass/gallery/desktop/jeep_my25_compass_gallery-slider-03_desktop.jpg" onclick="showWinner('Jeep Compas')">
+            <img src="https://cdn.dotpe.in/longtail/store-items/8165282/VQJUE0nl.jpeg" onclick="showWinner('Biriyani')">
+            <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQY-VJ3D9SZe83JcHTdawkLTlgbZglehl1RTuNPIrQCsCmnM28mR2w6qscuNsoEMeKKWa9UXbm4TfUee6tahBmxOK5VjefSh1BscmCE64-iYDhmW62eoR1NnA&usqp=CAE" onclick="showWinner('Mac-Book')">
+            <img src="https://im.whatshot.in/img/2021/Feb/mcdonalds-1612522016.jpg" onclick="showWinner('Mc Donald meal')">
+            <img src="https://lh3.googleusercontent.com/proxy/cBsIufPETGZiSpQKfFMTFJLQFmNReCntxEzroxqxy9azlx4J9Sclr1q3CJhZ5RmrF_Yuq9gOeVNDfMn-8Xh7zGEZVmTdFI0" onclick="showWinner('Porota Mangsho')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Me_bank_logo15.png/800px-Me_bank_logo15.png" onclick="showWinner('Me')" class="w-24 h-24 cursor-pointer">
+          </div>
+          <button id="scrollRight" class="scroll-btn">❯</button>
+        </div>
+        
+      </div>
+
+      <div id="step6" class="hidden">
+        <h2 class="text-lg font-bold">You just won... 🎉</h2>
+        <p id="selectedGift" class="text-2xl font-semibold mt-2"></p>
+        <a href="#" onclick="showFinalMessage()" class="text-blue-500 underline mt-2">Click here to know more</a>
+      </div>
+
+      <div id="step7" class="hidden">
+        <h1 id="typingText" class="typingText">Will you be my Valentine for the rest of our lives?</h1>
+        <button onclick="fireworks()" class="nextButton">Yes</button>
+        <button onclick="drama()" class="nextButton">No</button>
+      </div>
+      <canvas id="fireworksCanvas"></canvas>
+      <div id="dramaticText" class="hidden"></div>
+      <div id="thankYouMessage" class="hidden">
+        Thank You so much, I love you more than anything. Now you can refresh the page and go back to your Pichu.
+      </div>
+
+      </div>
+      <div class="overlay" id="overlay">
+        <div class="terminal-content">
+          <span class="close-btn" onclick="closeTerminal()">X</span>
+          <h2>Wishing you a very Happy Valentine's Day, Honey. 💖</h2>
+          <p>The gift is safely recorded in my database. Maybe today isn't the day, but trust me—one fine morning, it will be yours. That’s a promise.
+            More than anything, thank you for making me who I am today. Because of you, I can now create web pages, and even across this distance, I tried my best to make you feel special. I don't know how you felt, but I truly hope it brought a smile to your face.
+            If I wanted, this message could go on for ten pages, but you'd probably be bored by then—so I'll stop here. Take care, my love. And now, allow me to ask one last question...</p>
+            <button onclick="allowAction()" class="terminal-btn">Allow</button>
+            <button onclick="denyAction()" class="terminal-btn">Deny</button>
+        </div>
+      </div>
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="index.js"></script>
+  <!-- <script src="type.js"></script> -->
+</body>
+</html>
